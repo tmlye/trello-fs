@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+var Trello = require("trello"),
+    nom = require("nomnom"),
+    conf = require("nconf"),
+    fs = require("fs"),
+    path = require("path"),
+    rl = require("readline-sync");
+
+var cfgPath = path.join(process.env.HOME, ".trello-fs")
+conf.file(cfgPath);
+
+// Create default config if it doesn't exist
+if(!fs.existsSync(cfgPath)) {
+    fs.writeFileSync(cfgPath, null);
+    conf.set("key", "666f9d6239601a2d618e846039f746d7");
+    conf.set("curdir", "/");
+    conf.save();
+}
+
+// Make sure we have a token
+if(!conf.get("token")) {
+    console.log("In order to use trello-fs, you need to authorize this app and get a token. Please go to:");
+    console.log("https://trello.com/1/authorize?key=" + conf.get("key") + "&name=trello-fs&expiration=never&response_type=token&scope=read,write");
+    var token = rl.question("Enter the token here: " );
+    conf.set("token", token);
+    conf.save();
+}
+
+var trello = new Trello(conf.get("key"), conf.get("token"));
+
+// Figure out how to parse commands, see https://github.com/mheap/trello-cli/blob/master/bin/trello
+var commands = fs.readdirSync(__dirname + "/../commands/");
+commands.forEach(function(command){
+    require(__dirname + "/../commands/" + command)(nom, trello, conf, path);
+});
+
+nom.script("tfs")
+    .parse();
+
+// vim:set filetype=javascript:
