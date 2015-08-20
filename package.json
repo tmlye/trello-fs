@@ -1,0 +1,32 @@
+{
+  "name": "trello-fs",
+  "version": "0.0.3",
+  "description": "Command-line client for Trello",
+  "author": "Sascha Eglau",
+  "license": "MIT",
+  "repository": "tmlye/trello-fs",
+  "dependencies": {
+    "readline-sync": "^1.2.19",
+    "nconf": "^0.7.1",
+    "nomnom": "^1.8.1",
+    "trello": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "tfs": "bin/tfs"
+  },
+  "keywords": [
+    "trello",
+    "cli",
+    "client",
+    "command-line"
+  ],
+  "bugs": {
+    "url": "https://github.com/tmlye/trello-fs/issues"
+  },
+  "homepage": "https://github.com/tmlye/trello-fs#readme"
+}

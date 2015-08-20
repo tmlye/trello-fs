@@ -1,9 +1,13 @@
 # trello-fs
-trello-fs is a command-line client for Trello. It is in an early development stage. Please see the [Implemented](#Implemented) section for more details.
+trello-fs is a command-line client for Trello. It is in an early development stage. Please see the [Implemented](#implemented) section for more details.
 
 ## Install
 
-trello-fs will create a config file: `~/.trello-fs`. This file is also used as a cache.
+```shell
+npm install -g trello-fs
+```
+
+trello-fs will create a config file: `~/.trello-fs` when it's first run. This file is also used as a cache.
 
 ## Usage
 
