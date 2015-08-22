@@ -23,7 +23,7 @@ I think you get where this is heading. All commands should support relative and 
 
 ## Implemented
 
-So far, the only implemented command is `ls`. Next on the list are `pwd`, `cat`, `cd` and `mv`. Pull requests are welcome.
+So far, the only implemented commands are `ls`, `pwd` and a basic version of `cd`. `cd` does not currently check if the path you entered exists, meaning typos are not detected. Next on the list to implement are `cat`, `mv` and `ls -l`. Pull requests are welcome.
 
 ## Disclaimer
 
